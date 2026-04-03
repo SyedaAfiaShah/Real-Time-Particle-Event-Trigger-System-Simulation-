@@ -63,4 +63,4 @@ class StatisticalTrigger:
         joint_p_value = p_energy * p_momentum
         
         accepted = joint_p_value < self.p_value_threshold
-        return accepted.astype(int).values
+        return accepted.astype(int)
