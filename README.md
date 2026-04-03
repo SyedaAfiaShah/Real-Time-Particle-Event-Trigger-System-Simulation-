@@ -38,9 +38,6 @@ This repository serves as an educational and procedural proxy for real-world phy
 
 ---
 
-> **Integration Note:**  
-> This system can be integrated with Monte Carlo particle simulations to form a simplified end-to-end particle physics data pipeline.
-
 ## Getting Started
 
 ### Installation
