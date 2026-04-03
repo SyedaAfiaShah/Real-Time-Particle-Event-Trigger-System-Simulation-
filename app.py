@@ -10,62 +10,93 @@ from src.ml_trigger import MLTrigger
 from src.metrics import TriggerMetrics
 from src.visualization import TriggerVisualizer
 
-st.set_page_config(page_title="Particle Trigger System", layout="wide", page_icon="⚛️")
+st.set_page_config(page_title="Particle Trigger System", layout="wide")
 
 # Inject Custom CSS for premium aesthetic
 st.markdown("""
 <style>
     /* Global Backgrounds and Fonts */
     .stApp {
-        background-color: #0b0f19;
-        color: #e2e8f0;
+        background-color: #050505;
+        color: #e5e5e5;
         font-family: 'Inter', sans-serif;
     }
     h1, h2, h3 {
-        color: #60a5fa !important;
-        font-weight: 700;
+        color: #ffffff !important;
+        font-weight: 300;
+        letter-spacing: -0.5px;
     }
     
-    /* Metrics Styling */
+    /* Elegant Transitions and Effects */
+    .stButton > button {
+        background: transparent !important;
+        border: 1px solid #4ade80 !important;
+        color: #4ade80 !important;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        border-radius: 4px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 13px !important;
+    }
+    .stButton > button:hover {
+        background: rgba(74, 222, 128, 0.05) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(74, 222, 128, 0.15);
+        border-color: #6ee7b7 !important;
+        color: #6ee7b7 !important;
+    }
+    
+    /* Metrics Styling - Minimalist */
     div[data-testid="stMetricValue"] {
-        font-size: 28px !important;
-        color: #34d399 !important;
-        text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+        font-size: 36px !important;
+        font-weight: 200 !important;
+        color: #ffffff !important;
+        transition: color 0.4s ease, transform 0.4s ease;
+    }
+    div[data-testid="stMetricValue"]:hover {
+        color: #4ade80 !important;
+        transform: scale(1.02);
     }
     div[data-testid="stMetricLabel"] {
-        color: #94a3b8 !important;
-        font-size: 14px !important;
+        color: #737373 !important;
+        font-size: 12px !important;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
     }
 
     /* Sidebar Tweaks */
     section[data-testid="stSidebar"] {
-        background-color: #111827;
-        border-right: 1px solid #1f2937;
+        background-color: #0a0a0a;
+        border-right: 1px solid #1a1a1a;
     }
 
-    /* Alert Boxes */
+    /* Alert Boxes & Info Cards */
     .stAlert {
-        border-radius: 8px;
-        background: linear-gradient(135deg, rgba(30,58,138,0.2), rgba(15,23,42,0.8)) !important;
-        border: 1px solid #1e3a8a !important;
-        color: #bfdbfe !important;
+        border-radius: 2px;
+        background: transparent !important;
+        border: 1px solid #262626 !important;
+        border-left: 3px solid #4ade80 !important;
+        color: #a3a3a3 !important;
+        transition: all 0.3s ease;
+    }
+    .stAlert:hover {
+        border-color: #404040 !important;
+        background: rgba(255, 255, 255, 0.02) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("⚛️ Real-Time Particle Event Trigger System Simulation")
+st.title("Real-Time Particle Event Trigger System Simulation")
 st.markdown("A research-grade simulation of data pipelines handling massive streams of particle events, comparing rule-based, statistical, and ML strategies.")
 
 # --- Sidebar Controls ---
-st.sidebar.header("🧪 Event Generation Params")
+st.sidebar.header("Event Generation Parameters")
 n_events = st.sidebar.number_input("Total Events", min_value=1000, max_value=50000, value=10000, step=1000)
 signal_fraction = st.sidebar.slider("Signal Fraction", 0.01, 0.50, 0.05, 0.01, help="Percentage of true physics events.")
 noise_scale = st.sidebar.slider("Noise Scale", 0.1, 5.0, 1.0, 0.1, help="Multiplier for background noise.")
 
 st.sidebar.markdown("---")
-st.sidebar.header("⚙️ Trigger Configuration")
+st.sidebar.header("Trigger Configuration")
 trigger_method = st.sidebar.radio(
     "Select Trigger Type",
     ["Rule-Based", "Statistical", "Machine Learning"]
@@ -86,7 +117,7 @@ elif trigger_method == "Machine Learning":
 
 
 # Run Simulation Button
-if st.sidebar.button("🚀 Run Pipeline", use_container_width=True):
+if st.sidebar.button("Run Simulation Pipeline", use_container_width=True):
     with st.spinner("Generating Events and Evaluating Trigger..."):
         # 1. Generate Data
         generator = EventGenerator(seed=42)
@@ -158,7 +189,7 @@ if st.sidebar.button("🚀 Run Pipeline", use_container_width=True):
             st.pyplot(fig4)
             
 else:
-    st.info("👈 Adjust parameters and click 'Run Pipeline' to start.")
+    st.info("Adjust parameters and execute the pipeline to start.")
     
     st.markdown("""
     ### About the Trigger Data Pipeline
