@@ -87,7 +87,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("Real-Time Particle Event Trigger System Simulation")
-st.markdown("A research-grade simulation of data pipelines handling massive streams of particle events, comparing rule-based, statistical, and ML strategies.")
+st.markdown("Evaluates rule-based, statistical, and machine learning methods for filtering background noise from particle collision data.")
 
 # --- Sidebar Controls ---
 st.sidebar.header("Event Generation Parameters")
