@@ -23,7 +23,7 @@ This repository offers three implemented strategies for filtering data:
 
 ## 4. Results
 
-*You can generate and view real-time Results in the Streamlit App or the Jupyter Notebook.*
+[view Live Demo here](https://event-trigger-system.streamlit.app/)
 
 When comparing the triggering systems:
 *   **Rule-Based** is prone to throwing away legitimate edge cases or accepting artificial noise spikes. It relies heavily on arbitrary threshold guesswork.
